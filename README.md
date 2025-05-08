@@ -6,6 +6,8 @@ We will release the future model update (user-interface, new model weight, optim
 ![prime](./assets/PrimeNovo.png)
 
 ## Update：
+**May. 2025** We have designed the new NAT model that supports ultra **stable** training and guaranteened convergence with any data, solving the problems previously raised in the Issues where training of PrimeNovo easily leads to crushing and failures. The paper currently is accepted to ICML 2025. For people who wants to perform stable NAT pre-training, please visit our new Model Github Repo (coming soon).
+
 
 **Mar. 2025**: We have released PrimeNovo-PTM code, including the weight for our finetuned PTM weight for Phosphorylation (+79.97) using LUAD-2020 dataset, which is exactly as detailed in our paper. It's currently under directory [pi-PrimeNovo-PTM](./pi-PrimeNovo-PTM), one can modify this code into any desired PTM he wants as per our instructions in `README.md` in this directory. 
 
