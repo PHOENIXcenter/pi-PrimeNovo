@@ -492,7 +492,7 @@ class Spec2Pep(pl.LightningModule, ModelMixin):
                         
                     else:
                         #ctc_customized_mass_control = CTCMassControl(self.decoder )
-                        print("I am CUDA program")
+                        # print("I am CUDA program")
                         temp = mass_con.knapDecode(logits, mass, self.mass_control_tol)
                         # knapscores = torch.exp(_)
                         # indTemp = torch.tensor(temp)
@@ -900,8 +900,10 @@ class Spec2Pep(pl.LightningModule, ModelMixin):
                 sequence = ""
                 for el in peptides[i]:
                     if len(el) > 1:
-                        if sequence == "" and (el[0] == '-' or el[0] == '+') :
-                            sequence += '[' + el + ']-'
+                        if el[0] in ('+', '-'):
+                            sequence += '[' + el + ']'
+                        elif el[0].isdigit():
+                            sequence += '[' + el + ']'
                         else:
                             sequence += el[0] + '[' + el[1:] + ']'
                     else:

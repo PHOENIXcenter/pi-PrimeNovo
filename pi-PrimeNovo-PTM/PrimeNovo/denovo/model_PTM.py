@@ -374,7 +374,7 @@ class Spec2Pep(pl.LightningModule, ModelMixin):
                         
                     else:
                         #ctc_customized_mass_control = CTCMassControl(self.decoder )
-                        print("I am CUDA program")
+                        # print("I am CUDA program")
                         temp = mass_con_PTM.knapDecode(logits, mass)
                         # knapscores = torch.exp(_)
                         # indTemp = torch.tensor(temp)
