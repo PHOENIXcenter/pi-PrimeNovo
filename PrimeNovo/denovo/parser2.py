@@ -271,14 +271,14 @@ class MgfParser(BaseParser):
         else:
             precursor_mz, precursor_charge = None, 0
 
-        if self.annotationsLabel:
-            self.annotations.append(spectrum["params"].get("seq"))
-        else:
-            # print(spectrum)
-            # print((spectrum["params"]["title"]))
-            self.annotations.append(spectrum["params"]["title"])
-
         if self.valid_charge is None or precursor_charge in self.valid_charge:
+            if self.annotationsLabel:
+                self.annotations.append(spectrum["params"].get("seq"))
+            else:
+                # print(spectrum)
+                # print((spectrum["params"]["title"]))
+                self.annotations.append(spectrum["params"]["title"])
+                        
             self.mz_arrays.append(list(spectrum["m/z array"]))
             self.intensity_arrays.append(list(spectrum["intensity array"]))
             self.precursor_mz.append(precursor_mz)
