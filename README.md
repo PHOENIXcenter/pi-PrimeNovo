@@ -1,6 +1,6 @@
 > **⚠️ WARNING**
 >
-> We have noticed that many users experience **lower peptide accuracy** when using PrimeNovo. In most cases, this happens because **PMC is enabled inappropriately**.
+> We have noticed that some users experience **lower peptide accuracy** when using PrimeNovo. In most cases, this happens because **PMC is enabled inappropriately**.
 >
 > When `PMC_enable=True`, PMC forces the decoded peptide mass to fall strictly within:
 >
@@ -8,9 +8,9 @@
 >
 > where `measured_mass` is calculated as:
 >
-> `(pepMass - 1.007276) * charge - 18.01`
+> `(precursor_Mass - 1.007276) * precusor_charge - 18.01`
 >
-> (`pepMass` and `charge` are taken from the input MGF spectrum.)
+> (`precursor_Mass` and `precursor_charge` are taken from the input MGF spectrum.)
 >
 > However, we have observed that in many datasets, the labeled peptides do **not** match the precursor-derived measured mass. In those cases, if PMC is turned on, these samples can be forced into incorrect predictions.
 >
