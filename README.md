@@ -1,3 +1,25 @@
+> **⚠️ WARNING**
+>
+> We have noticed that many users experience **lower peptide accuracy** when using PrimeNovo. In most cases, this happens because **PMC is enabled inappropriately**.
+>
+> When `PMC_enable=True`, PMC forces the decoded peptide mass to fall strictly within:
+>
+> `[`measured_mass - 0.1`, `measured_mass + 0.1`]`
+>
+> where `measured_mass` is calculated as:
+>
+> `(pepMass - 1.007276) * charge - 18.01`
+>
+> (`pepMass` and `charge` are taken from the input MGF spectrum.)
+>
+> However, we have observed that in many datasets, the labeled peptides do **not** match the precursor-derived measured mass. In those cases, if PMC is turned on, these samples can be forced into incorrect predictions.
+>
+> **Recommendation:** before enabling PMC, first check whether the peptide masses in your labeled MS dataset are consistent with the precursor-derived measured mass. If there is any mismatch, try turning off PMC by setting:
+>
+> `PMC_enable=False`
+>
+> in `config.yaml`. In such cases, you may observe **higher accuracy**.
+
 # $\pi$-PrimeNovo
 
 This is the official repo for the paper: **[π-PrimeNovo: An Accurate and Efficient Non-Autoregressive Deep Learning Model for De Novo Peptide Sequencing.](https://www.nature.com/articles/s41467-024-55021-3)**
