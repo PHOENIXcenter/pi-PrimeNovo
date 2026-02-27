@@ -12,7 +12,7 @@
 >
 > (`precursor_Mass` and `precursor_charge` are taken from the input MGF spectrum.)
 >
-> However, we have observed that in many datasets, the labeled peptides do **not** match the precursor-derived measured mass. In those cases, if PMC is turned on, these samples can be forced into incorrect predictions.
+> However, we have observed that in many datasets, the labeled peptides do **not** match the precursor-derived measured mass. In those cases, if PMC is turned on, predicted peptides will be 100% different from the labels.
 >
 > **Recommendation:** before enabling PMC, first check whether the peptide masses in your labeled MS dataset are consistent with the precursor-derived measured mass. If there is any mismatch, try turning off PMC by setting:
 >
